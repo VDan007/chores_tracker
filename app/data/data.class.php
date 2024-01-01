@@ -28,4 +28,7 @@ class Data{
     static public function delete_term($term){
         return self::$ds->delete_term($term);
     }
+    static public function get_users(){
+        return self::$ds->get_users();
+    }
 }

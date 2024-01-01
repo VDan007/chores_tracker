@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -16,6 +18,7 @@
         </div>
         <nav>
             <ul class="flex gap-4 pr-4">
+                <?php echo  isset($_SESSION['user_logged_in']) ? '<li> <a href="logout.php"> logout </a>  </li>' :'' ?>
                 <li>about</li>
                 <li>contact</li>
             </ul>

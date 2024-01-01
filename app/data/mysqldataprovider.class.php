@@ -1,14 +1,19 @@
 <?php
 
 require('chores.class.php');
+require('user.class.php');
 
 class MySqlDataProvider{
 
     public function get_chores(){
-        return $this->query(sql:'SELECT * FROM chores');
+        return $this->query(sql:'SELECT * FROM chores',response_class:'Chores');
     }
 
-    private function query($sql){
+    public function get_users(){
+        return $this->query(sql:'SELECT * FROM users',response_class:'User');
+    }
+
+    private function query($sql,$response_class){
         $db = $this->connect();
         if($db == null){
             
@@ -19,7 +24,7 @@ class MySqlDataProvider{
         $query = $db->query($sql);
         
 
-        $data = $query->fetchAll(PDO::FETCH_CLASS,'Chores');
+        $data = $query->fetchAll(PDO::FETCH_CLASS,$response_class);
 
 
         $query = null;
