@@ -9,8 +9,8 @@ class Data{
         return self::$ds = $data_provider;
     }
 
-    static public function get_terms(){
-        return self::$ds->get_terms();
+    static public function get_chores(){
+        return self::$ds->get_chores();
     } 
 
     static public function get_term($term){

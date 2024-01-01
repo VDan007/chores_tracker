@@ -3,4 +3,4 @@
 require('app/app.php');
 
 
-view('start');
+view('chores');
