@@ -44,5 +44,15 @@ function authenticate_user($email, $password){
 }
 
 function is_user_authenticated(){
-    return isset($_SESSION['email']);
+    return isset($_SESSION['user_logged_in']);
+}
+
+function is_user_admin(){
+    return $_SESSION['user_logged_in']-> is_admin > 0;
+}
+
+function ensure_user_is_authenticated(){
+    if(!is_user_authenticated()){
+        redirect('/school_project_chore_tracker/login.php');
+    }
 }

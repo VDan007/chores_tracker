@@ -8,7 +8,11 @@ if(is_post()){
 
     if(authenticate_user($email,$password)){
         $_SESSION['user_logged_in'] = authenticate_user($email,$password);
-        redirect('dashboard.php');
+        if(is_user_admin()){
+            redirect('admin/');
+        }else{
+            redirect('dashboard.php');
+        }
     }else{
         $view_bag['status'] = 'The provided credentials are not correct';
     }

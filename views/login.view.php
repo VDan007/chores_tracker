@@ -13,5 +13,5 @@
     if(isset($view_bag['status'])){
         echo $view_bag['status'];
     }
-
 ?>
+
