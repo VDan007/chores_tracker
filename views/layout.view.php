@@ -10,7 +10,7 @@
 </head>
 
 
-<body class="flex flex-col justify-between min-h-screen">
+<body class="flex flex-col min-h-screen px-2">
     <header class="flex justify-between items-center">
 
         <div>
@@ -26,11 +26,14 @@
 
     </header>
 
-    <?php
+    <div class="min-h-[70vh] ">
+        <?php
 
-        require("$name.view.php");
+            require("$name.view.php");
 
-    ?>
+        ?>
+
+    </div>
 
 
 

@@ -3,12 +3,13 @@
 class Chores{
 
     public $id;
+    public $title;
     public $creator;
     public $creation_date;
     public $assigned_to;
     public $due_date;
     public $status;
-    public $comments;
+    public $description;
 
 
 
