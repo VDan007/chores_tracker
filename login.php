@@ -1,6 +1,6 @@
 <?php
-session_start();
 require('app/app.php');
+session_start();
 
 if(is_post()){
     $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);

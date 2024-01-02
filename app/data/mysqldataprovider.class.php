@@ -9,6 +9,10 @@ class MySqlDataProvider{
         return $this->query(sql:'SELECT * FROM chores',response_class:'Chores');
     }
 
+    public function get_chores_of_user($email){
+        return $this->query(sql:"SELECT * FROM chores WHERE assigned_to = '$email' ",response_class:'Chores');
+    }
+
     public function get_users(){
         return $this->query(sql:'SELECT * FROM users',response_class:'User');
     }

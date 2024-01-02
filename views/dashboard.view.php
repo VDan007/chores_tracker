@@ -1,23 +1,33 @@
 
 
 
+<?php foreach ($model as $key=>$value) : ?>
+
 
 <div>
-    <h1>chore 1</h1>
-    <h1>chore 1</h1>
-    <h1>chore 1</h1>
-    <h1>chore 1</h1>
+    <div>
+        <?= $model[$key]->creator ?>
+    </div>
+    <div>
+        <?= $model[$key]->creation_date ?>
+    </div>
+    <div>
+        <?= $model[$key]->due_date ?>
+    </div>
+    <div>
+        <?= $model[$key]->status ?>
+    </div>
+    <div>
+        <?= $model[$key]->comments ?>
+    </div>
 </div>
 
 
+<?php endforeach; ?>
 
 
 
 
-
-<?php
-    echo var_dump($_SESSION['user_logged_in'])
-?>
 
 
 

@@ -13,6 +13,10 @@ class Data{
         return self::$ds->get_chores();
     } 
 
+    static public function get_chores_of_user($email){
+        return self::$ds->get_chores_of_user($email);
+    }
+
     static public function get_term($term){
         return self::$ds->get_term($term);
     }

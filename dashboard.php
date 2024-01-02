@@ -1,9 +1,13 @@
 <?php
 
+require('app/app.php');
 session_start();
 
-require('app/app.php');
 ensure_user_is_authenticated();
 
 
-view('dashboard');
+
+
+view('dashboard',Data::get_chores_of_user($_SESSION['user_logged_in']->email));
+
+
