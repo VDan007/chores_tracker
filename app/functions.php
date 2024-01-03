@@ -23,6 +23,10 @@ function is_post(){
     return $_SERVER['REQUEST_METHOD'] === 'POST';
 }
 
+function is_get(){
+    return $_SERVER['REQUEST_METHOD'] === 'GET';
+}
+
 
 function authenticate_user($email, $password){
 
@@ -54,5 +58,13 @@ function is_user_admin(){
 function ensure_user_is_authenticated(){
     if(!is_user_authenticated()){
         redirect('/school_project_chore_tracker/login.php');
+    }
+}
+
+function find_chore_by_id($array,$id){
+    foreach($array as $item){
+        if($item->id == $id){
+            return $item;
+        }
     }
 }

@@ -51,7 +51,7 @@
             </div>
             <div class="col-start-7">
                 <!-- $model[$key]->id  -->
-                <a class="bg-green-300 p-2" href="">Edit</a>
+                <a class="bg-green-300 p-2" href="details.php?id=<?php echo $model[$key]->id ?>">Edit</a>
                 <a class="bg-red-300  p-2" href="">Done</a>
             </div>
         
