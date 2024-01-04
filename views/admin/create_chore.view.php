@@ -5,8 +5,14 @@
 <label for="title">Title</label>
 <input class="border" name="title" id="title" type="text">
 
-<label for="assign_to">Assig to</label>
-<input class="border" name="assigned_to" id="assign_to" type="text">
+<label for="assigned_to">Assigned to 
+            
+            <select class="border" name="assigned_to" id="assigned_to">
+                <?php foreach($model as $item) : ?>
+                    <option value="<?= $item ?>"><?= $item ?></option>
+                <?php endforeach; ?>
+            </select>
+        </label>
 
 <label for="due_date">Due date</label>
 <input class="border" id="due_date" name="due_date" type="date" >

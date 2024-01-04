@@ -12,7 +12,12 @@
         <h3>Creation date: <?= $model->creation_date ?> </h3>
 
         <label for="assigned_to">Assigned to 
-            <input class="border" name="assigned_to" id="assigned_to" type="text" value="<?= $model->assigned_to ?>">
+            
+            <select class="border" name="assigned_to" id="assigned_to">
+                <?php foreach($model3 as $item) : ?>
+                    <option value="<?= $item ?>"><?= $item ?></option>
+                <?php endforeach; ?>
+            </select>
         </label>
     
         <label for="due_date">Due date:
