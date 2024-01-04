@@ -34,9 +34,9 @@ class MySqlDataProvider{
                 ':title' => $title,
                 ':creator' => $creator,
                 ':assigned_to' => $assigned_to,
-                'due_date' => $due_date,
-                'status' => $status,
-                'description' => $description
+                ':due_date' => $due_date,
+                ':status' => $status,
+                ':description' => $description
             ]
         );
     }
