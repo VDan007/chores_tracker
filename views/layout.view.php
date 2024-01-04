@@ -14,7 +14,10 @@
     <header class="flex justify-between items-center">
 
         <div>
-            <img src="images/logo_placeholder.png" alt="logo placeholder image">
+            <a href="index.php">
+                <img src="images/logo_placeholder.png" alt="logo placeholder image">
+
+            </a>
         </div>
         <nav>
             <ul class="flex gap-4 pr-4">

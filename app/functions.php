@@ -68,3 +68,9 @@ function find_chore_by_id($array,$id){
         }
     }
 }
+
+function quick_done($id,$status){
+    $status = sanitize($status);
+    $id = sanitize($id);
+    Data::update_chore($id,$status);
+}

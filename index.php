@@ -1,11 +1,15 @@
 <?php
+require('app/app.php');
 session_start();
 
 
 
 
-require('app/app.php');
+if(is_user_authenticated()){
+    redirect('dashboard.php');
+}else{
+    view('start');
 
+}
 
-view('start');
 
