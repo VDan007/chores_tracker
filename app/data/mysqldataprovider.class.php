@@ -22,6 +22,29 @@ class MySqlDataProvider{
                         ]);
     }
 
+    public function update_chore_as_admin($id,$title,$assigned_to,$due_date,$status,$description){
+        return $this->execute(
+            sql:'UPDATE chores SET title = :title, assigned_to = :assigned_to, due_date = :due_date, status = :status, description = :description WHERE id = :id',
+            sql_params:[
+                ':id' => $id,
+                ':title' => $title,
+                ':assigned_to' => $assigned_to,
+                ':due_date' => $due_date,
+                'status' => $status,
+                'description' =>$description
+            ]
+        );
+    }
+
+    public function delete_chore($id){
+        return $this->execute(
+            sql: 'DELETE FROM chores WHERE id = :id',
+            sql_params:[
+                ':id' => $id
+            ]
+        );
+    }
+
     public function get_users(){
         return $this->query(sql:'SELECT * FROM users',response_class:'User');
     }

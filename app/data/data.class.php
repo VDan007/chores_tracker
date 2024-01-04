@@ -29,8 +29,13 @@ class Data{
     static public function update_chore($id,$status){
         return self::$ds->update_chore($id,$status);
     }
-    static public function delete_term($term){
-        return self::$ds->delete_term($term);
+
+    static public function update_chore_as_admin($id,$title,$assigned_to,$due_date,$status,$description){
+       return self::$ds-> update_chore_as_admin($id,$title,$assigned_to,$due_date,$status,$description);
+    }
+
+    static public function delete_chore($chore){
+        return self::$ds->delete_chore($chore);
     }
     static public function get_users(){
         return self::$ds->get_users();

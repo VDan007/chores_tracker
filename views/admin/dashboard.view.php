@@ -3,10 +3,10 @@
 
 
 
-<a href="create_chore.php">create chore</a>
+<a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md" href="create_chore.php">create chore  <span class="text-6xl">  +</span>  </a>
 
 
-<h3 class="text-center my-5">All chores</h3>
+<h3 class="text-center my-5 text-3xl ">All chores</h3>
 
 <div class=" grid grid-rows-auto grid-cols-8 gap-5">
 
@@ -39,7 +39,7 @@
         </div>
 
         <div class="col-start-8">
-            teee
+           
 
         </div>
 
@@ -69,7 +69,7 @@
             
             <div class="col-start-8">
                 <!-- $model[$key]->id  -->
-                <a class="bg-green-300 p-2" href="details.php?id=<?php echo $model[$key]->id ?>">Edit</a>
+                <a class="bg-green-300 p-2" href="edit_chore.php?id=<?php echo $model[$key]->id ?>">Edit</a>
                
             </div>
 
