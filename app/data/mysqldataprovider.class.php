@@ -13,6 +13,15 @@ class MySqlDataProvider{
         return $this->query(sql:"SELECT * FROM chores WHERE assigned_to = '$email' ",response_class:'Chores');
     }
 
+    public function update_chore($id,$status){
+        return $this->execute(
+            sql:'UPDATE chores SET status = :status WHERE id = :id',
+            sql_params:[
+                        ':id' => $id,
+                        ':status' => $status
+                        ]);
+    }
+
     public function get_users(){
         return $this->query(sql:'SELECT * FROM users',response_class:'User');
     }
@@ -35,6 +44,20 @@ class MySqlDataProvider{
         $db = null;
 
         return $data;
+    }
+
+    private function execute($sql,$sql_params){
+       $db = $this->connect();
+       if($db == null){
+        return;
+       } 
+
+       $stmt = $db->prepare($sql);
+
+       $stmt->execute($sql_params);
+
+       $stmt = null;
+       $db = null;
     }
 
     private function connect(){

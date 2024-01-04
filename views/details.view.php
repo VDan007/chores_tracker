@@ -21,5 +21,8 @@
             <option value="<?= $item ?>"><?= $item ?></option>
         <?php endforeach; ?>
     </select>
+    <input type="hidden" name="id" value="<?= $model->id ?>">
     <p>Description: <?= $model->description ?>  </p>
+    <input class="cursor-pointer border bg-gray-300 p-1" type="submit" value="save changes">
 </form>
+<a class="bg-red-300 block mx-auto my-5 max-w-[150px] text-center p-1" href="dashboard.php">back to dashboard</a>

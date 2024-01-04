@@ -14,6 +14,16 @@ if(is_get() && isset($_GET['id'])){
 
     view('details',$chore_i_need);
     
+}elseif(is_post()){
+   $status = sanitize($_POST['status']);
+   $id = sanitize($_POST['id']);
+
+   Data::update_chore($id,$status);
+   redirect('dashboard.php');
+
+
 }else{
     redirect('dashboard.php');
 }
+
+
