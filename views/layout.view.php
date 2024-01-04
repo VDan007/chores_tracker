@@ -29,7 +29,7 @@
 
     </header>
 
-    <div class="min-h-[70vh] ">
+    <div class="min-h-[70vh]" style="margin-bottom:60px">
         <?php
 
             require("$name.view.php");

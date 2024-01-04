@@ -1,8 +1,7 @@
 <?php
-session_start();
+
 require('../app/app.php');
+session_start();
 ensure_user_is_authenticated();
 
-
-
-view('admin/dashboard',Data::get_chores());
+view('admin/edit_chore');
