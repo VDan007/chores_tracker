@@ -26,6 +26,21 @@ class MySqlDataProvider{
         return $this->query(sql:'SELECT * FROM users',response_class:'User');
     }
 
+    public function add_chore($title,$creator,$assigned_to,$due_date,$status,$description){
+        return $this->execute(
+            sql:'INSERT INTO chores (title,creator,assigned_to,due_date,status,description) VALUES(:title,:creator,:assigned_to,:due_date,:status,:description)',
+            sql_params:[
+                
+                ':title' => $title,
+                ':creator' => $creator,
+                ':assigned_to' => $assigned_to,
+                'due_date' => $due_date,
+                'status' => $status,
+                'description' => $description
+            ]
+        );
+    }
+
     private function query($sql,$response_class){
         $db = $this->connect();
         if($db == null){

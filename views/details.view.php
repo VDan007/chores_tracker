@@ -12,15 +12,18 @@
 ?>
 
 
-<form method="POST" class="flex flex-col items-center">
+<form method="POST" class="flex flex-col items-center gap-5">
     <h1> <?= $model->title ?></h1>
     <h3>Creation date: <?= $model->creation_date ?> </h3>
     <h3>Due date:<?= $model->due_date ?> </h3>
-    <select name="status" id="">
-        <?php foreach($array_to_display as $item) : ?>
-            <option value="<?= $item ?>"><?= $item ?></option>
-        <?php endforeach; ?>
-    </select>
+    <label class="border" for="status"> Status:
+        <select name="status" id="status">
+            <?php foreach($array_to_display as $item) : ?>
+                <option value="<?= $item ?>"><?= $item ?></option>
+            <?php endforeach; ?>
+        </select>
+
+    </label>
     <input type="hidden" name="id" value="<?= $model->id ?>">
     <p>Description: <?= $model->description ?>  </p>
     <input class="cursor-pointer border bg-gray-300 p-1" type="submit" value="save changes">

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="http://localhost:667/school_project_chore_tracker/output.css">
 </head>
 
 
@@ -15,13 +15,13 @@
 
         <div>
             <a href="index.php">
-                <img src="images/logo_placeholder.png" alt="logo placeholder image">
+                <img src="http://localhost:667/school_project_chore_tracker/images/logo_placeholder.png" alt="logo placeholder image">
 
             </a>
         </div>
         <nav>
             <ul class="flex gap-4 pr-4">
-                <?php echo  isset($_SESSION['user_logged_in']) ? '<li> <a href="logout.php"> logout </a>  </li>' :'' ?>
+                <?php echo  isset($_SESSION['user_logged_in']) ? '<li> <a href="http://localhost:667/school_project_chore_tracker/logout.php"> logout </a>  </li>' :'' ?>
                 <li>about</li>
                 <li>contact</li>
             </ul>

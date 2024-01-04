@@ -23,8 +23,8 @@ class Data{
     static public function search_terms($search){
         return self::$ds->search_terms($search);
     }
-    static public function add_term($term,$definition){
-        return self::$ds->add_term($term,$definition);
+    static public function add_chore($title,$creator,$assigned_to,$due_date,$status,$description){
+        return self::$ds->add_chore($title,$creator,$assigned_to,$due_date,$status,$description);
     }
     static public function update_chore($id,$status){
         return self::$ds->update_chore($id,$status);
