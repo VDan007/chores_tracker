@@ -863,20 +863,16 @@ video {
   display: none;
 }
 
+.min-h-\[150px\] {
+  min-height: 150px;
+}
+
 .min-h-\[70vh\] {
   min-height: 70vh;
 }
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-\[200px\] {
-  min-height: 200px;
-}
-
-.min-h-\[150px\] {
-  min-height: 150px;
 }
 
 .w-\[this-is\\\\\] {
@@ -891,14 +887,6 @@ video {
   width: weird-and-invalid;
 }
 
-.min-w-\[200px\] {
-  min-width: 200px;
-}
-
-.min-w-\[250px\] {
-  min-width: 250px;
-}
-
 .min-w-\[280px\] {
   min-width: 280px;
 }
@@ -907,20 +895,16 @@ video {
   max-width: 150px;
 }
 
-.max-w-\[500px\] {
-  max-width: 500px;
+.max-w-\[180px\] {
+  max-width: 180px;
 }
 
 .max-w-\[400px\] {
   max-width: 400px;
 }
 
-.max-w-\[80px\] {
-  max-width: 80px;
-}
-
-.max-w-\[180px\] {
-  max-width: 180px;
+.max-w-\[500px\] {
+  max-width: 500px;
 }
 
 .flex-shrink {
@@ -1453,6 +1437,10 @@ video {
   justify-items: stretch;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -1463,14 +1451,6 @@ video {
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.gap-1 {
-  gap: 0.25rem;
-}
-
-.gap-8 {
-  gap: 2rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2130,28 +2110,13 @@ video {
   vertical-align: super;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-6xl {
   font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-5xl {
-  font-size: 3rem;
   line-height: 1;
 }
 
