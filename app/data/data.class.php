@@ -40,4 +40,7 @@ class Data{
     static public function get_users(){
         return self::$ds->get_users();
     }
+    static public function get_group_by_email($email){
+        return self::$ds->get_group_by_email($email);
+    }
 }

@@ -64,6 +64,24 @@ class MySqlDataProvider{
         );
     }
 
+    public function get_group_by_email($email){
+        return $this->query(
+            sql:"SELECT * FROM groups WHERE
+                 admin_1 = '$email'  OR
+                 admin_2 = '$email'  OR
+                 member_1 = '$email' OR 
+                 member_2 = '$email' OR 
+                 member_3 = '$email' OR 
+                 member_4 = '$email' OR 
+                 member_5 = '$email' OR 
+                 member_6 = '$email' OR 
+                 member_7 = '$email' OR 
+                 member_8 = '$email' OR 
+                 member_9 = '$email' OR ",
+            response_class: 'Group'     
+        );
+    }
+
     private function query($sql,$response_class){
         $db = $this->connect();
         if($db == null){
