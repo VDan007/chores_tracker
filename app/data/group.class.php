@@ -4,6 +4,7 @@ class Group{
     
     public $id;
     public $group_name;
+    public $password;
     public $admin_1;
     public $admin_2;
     public $member_1;
