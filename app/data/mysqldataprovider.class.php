@@ -50,7 +50,7 @@ class MySqlDataProvider{
     }
 
     public function get_user_by_email($email){
-        return $this->query(sql: "SELECT * FROm users WHERE email = '$email' ",response_class:'User');
+        return $this->query(sql: "SELECT * FROM users WHERE email = '$email' ",response_class:'User');
     }
 
     public function create_user($name,$email,$password){
@@ -93,7 +93,7 @@ class MySqlDataProvider{
                  member_6 = '$email' OR 
                  member_7 = '$email' OR 
                  member_8 = '$email' OR 
-                 member_9 = '$email' OR ",
+                 member_9 = '$email' ",
             response_class: 'Group'     
         );
     }

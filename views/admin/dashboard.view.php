@@ -3,8 +3,47 @@
 
 
 
-<a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md" href="create_chore.php">create chore  <span class="text-6xl">  +</span>  </a>
-
+<a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md mb-2" href="create_chore.php">create chore  <span class="text-6xl">  +</span>  </a>
+<div class="flex items-center gap-2 ">
+    <div class="border-2 border-green-300 w-[180px] p-2 rounded-md">
+        <h2 class="mb-2">Group members:</h2>
+        <?php foreach($model2 as $item) : ?>
+            <p> <?= $item  ?> </p>
+        <?php endforeach; ?>
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="border-2 border-green-300 rounded-md p-2">
+            <button id="add_new_member_btn">Add member <span>+</span></button>
+        </div>    
+    
+        <div class="border-2 border-red-300 rounded-md p-2">
+            <button id="remove_member_btn">Remove member <span>-</span></button>
+        </div>     
+    </div>
+    <div id="add_new_member_div">
+            <form class="flex flex-col border border-green-300 items-end gap-3 p-3" action="">
+                <label for="new_user_name">Name
+                    <input class="border" id="new_user_name" name="new_user_name" type="text">
+                </label>
+                <label for="new_user_email">E-mail
+                    <input id="new_user_email" name="new_user_email" class="border" type="text">
+                </label>
+                <label for="new_user_password">Password
+                    <input name="new_user_password" id="new_user_password" class="border" type="text">
+                </label>
+                <input id="add_new_member_btn_submit" class="p-2 bg-green-300 cursor-pointer" type="submit" value="Add +">
+            </form>
+    </div>
+    <div id="remove_member_div">
+            <form class="flex flex-col border border-red-300 items-end gap-3 p-3" action="">
+                <label for="user_email_to_remove">Name
+                    <input class="border" id="user_email_to_remove" name="user_email_to_remove" type="text">
+                </label>
+                
+                <input id="remove_member_btn_submit" class="p-2 bg-red-300 cursor-pointer" type="submit" value="Remove -">
+            </form>
+    </div>
+</div>
 
 <h3 class="text-center my-5 text-3xl ">All chores</h3>
 
@@ -75,3 +114,37 @@
 
     <?php endforeach; ?>    
 </div>
+
+<script>
+    const add_new_member_div = document.getElementById('add_new_member_div');
+    const add_new_member_btn = document.getElementById('add_new_member_btn');
+    const add_new_member_btn_submit = document.getElementById('add_new_member_btn_submit');
+    const remove_member_div = document.getElementById('remove_member_div');
+    const remove_member_btn = document.getElementById('remove_member_btn');
+    const remove_member_btn_submit = document.getElementById('remove_member_btn_submit');
+
+    function toggle_show_hide_elements(element){
+        if(element.style.display == 'none'){
+            element.style.display = 'flex';
+        }else{
+            element.style.display = 'none';
+        }
+
+
+    //    if(element.classList.contains('hidden')){
+    //     element.classList.remove('hidden');
+    //     element.classList.add('flex');
+    //    }else{
+    //     element.classList.remove('flex');
+    //     element.classList.add('hidden');
+    //    }
+    }
+
+    toggle_show_hide_elements(add_new_member_div);
+    toggle_show_hide_elements(remove_member_div);
+
+    add_new_member_btn.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
+    add_new_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
+    remove_member_btn.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
+    remove_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
+</script>
