@@ -23,12 +23,33 @@ if(is_post()){
    
    
    else{
-    Data::create_user($name,$email,$password);
+
+    try{
+        Data::create_user($name,$email,$password);
+        $view_bag = 'User created successfully! </br> You will be redirected to login shortly!';
+        echo '<script>setTimeout(function() { window.location.href = "login.php"; }, 3500);</script>';
+
+    }catch(Exception $e){
+        echo $e;
+    }
+
+
+   
    }
+
+   
 
 
 }
 
 
 
+
+
 view('signup');
+
+
+?>
+<!-- <script>
+    alert('ji');
+</script> -->

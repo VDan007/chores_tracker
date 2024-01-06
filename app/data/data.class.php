@@ -42,7 +42,12 @@ class Data{
     }
 
     static public function create_user($name,$email,$password){
-        return self::$ds->create_user($name,$email,$password);
+        try{
+            return self::$ds->create_user($name,$email,$password);
+        }
+        catch(Exception $e){
+            echo $e;
+        }
     }
 
     static public function get_user_by_email($email){

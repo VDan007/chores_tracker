@@ -134,10 +134,9 @@ class MySqlDataProvider{
 
     private function connect(){
         try{
-            
             return new PDO(CONFIG['db'],CONFIG['db_user'],CONFIG['db_password']);
-        }catch(PDOException $e){
             
+        }catch(PDOException $e){
             return null;
         }
     }
