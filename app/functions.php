@@ -77,8 +77,13 @@ function quick_done($id,$status){
 
 function find_empty_space_for_new_member($array){
     foreach($array as $key=>$value){
-        if($value == "--"){
-            return $key + 5;
+        if($key != 'id' && 
+           $key != 'group_name' &&
+           $key != 'password' && 
+           $key != 'admin_1' && 
+           $key != 'admin_2' &&  
+           $value == null){
+            return $key;
             break;
         }
     }

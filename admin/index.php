@@ -28,9 +28,9 @@ foreach(  (array) $admins_group[0]  as $key => $value){
         }
     }
 }
+$array = (array) $admins_group[0];
+$empty_place=  find_empty_space_for_new_member( $array);
 
-$empty_place= find_empty_space_for_new_member($array_of_group_members);
-echo var_dump($empty_place);
 
 
 
@@ -49,7 +49,7 @@ if(is_post()){
         if($name != null && $email != null && $password != null){
             try{
                 Data::create_user($name,$email,$password,0);
-                Data::insert_member_into_group($admins_group_id,false,$email);
+                Data::insert_member_into_group($admins_group_id,false,$email,$empty_place);
                 redirect('index.php');
     
             }catch(Exception $e){
@@ -64,10 +64,21 @@ if(is_post()){
         $email = sanitize ($_POST['user_email_to_remove']);
 
         if($email != null){
+
+            $column_to_delete = null;
+
+            foreach($admins_group[0] as $key => $value){
+                if($value == $email){
+                    $column_to_delete = $key;
+                    break;
+                }
+            }
+            
+
             
             try{
-                Data::remove_user($email);
-                
+                Data::remove_user($email,$admins_group_id,$column_to_delete);
+                redirect('index.php');
 
             }catch(Exception $e){
                 echo 'problem removing member';

@@ -74,6 +74,13 @@ class MySqlDataProvider{
         );
     }
 
+    public function remove_user_from_group($email,$group_id,$column_to_delete){
+        return $this->execute(
+            sql:"UPDATE groups SET $column_to_delete = NULL",
+            sql_params:[]
+        );
+    }
+
     public function add_chore($title,$creator,$assigned_to,$due_date,$status,$description){
         return $this->execute(
             sql:'INSERT INTO chores (title,creator,assigned_to,due_date,status,description) VALUES(:title,:creator,:assigned_to,:due_date,:status,:description)',
@@ -108,47 +115,9 @@ class MySqlDataProvider{
     }
 
 
-    public function insert_member_into_group($group_id,$user_email){
+    public function insert_member_into_group($group_id,$user_email,$column){
         return $this->execute(
-            sql: 'UPDATE groups
-            SET 
-            member_1 = CASE
-                WHEN member_1 IS NULL THEN :email
-                ELSE member_1
-            END,    
-            member_2 = CASE
-                WHEN member_2 IS NULL THEN :email
-                ELSE member_2
-            END,    
-            member_3 = CASE
-                WHEN member_3 IS NULL THEN :email
-                ELSE member_3
-            END,    
-            member_4 = CASE
-                WHEN member_4 IS NULL THEN :email
-                ELSE member_4
-            END,    
-            member_5 = CASE
-                WHEN member_5 IS NULL THEN :email
-                ELSE member_5
-            END,    
-            member_6 = CASE
-                WHEN member_6 IS NULL THEN :email
-                ELSE member_6
-            END,    
-            member_7 = CASE
-                WHEN member_7 IS NULL THEN :email
-                ELSE member_7
-            END,    
-            member_8 = CASE
-                WHEN member_8 IS NULL THEN :email
-                ELSE member_8
-            END,    
-            member_9 = CASE
-                WHEN member_9 IS NULL THEN :email
-                ELSE member_9
-            END
-            WHERE id = :id',
+            sql: "UPDATE groups SET $column = :email WHERE id = :id", 
             sql_params:[
                 ':email' => $user_email,
                 ':id' => $group_id
