@@ -107,6 +107,74 @@ class MySqlDataProvider{
         );
     }
 
+
+    public function insert_member_into_group($group_id,$user_email){
+        return $this->execute(
+            sql: 'UPDATE groups
+            SET 
+            member_1 = CASE
+                WHEN member_1 IS NULL THEN :email
+                ELSE member_1
+            END,    
+            member_2 = CASE
+                WHEN member_2 IS NULL THEN :email
+                ELSE member_2
+            END,    
+            member_3 = CASE
+                WHEN member_3 IS NULL THEN :email
+                ELSE member_3
+            END,    
+            member_4 = CASE
+                WHEN member_4 IS NULL THEN :email
+                ELSE member_4
+            END,    
+            member_5 = CASE
+                WHEN member_5 IS NULL THEN :email
+                ELSE member_5
+            END,    
+            member_6 = CASE
+                WHEN member_6 IS NULL THEN :email
+                ELSE member_6
+            END,    
+            member_7 = CASE
+                WHEN member_7 IS NULL THEN :email
+                ELSE member_7
+            END,    
+            member_8 = CASE
+                WHEN member_8 IS NULL THEN :email
+                ELSE member_8
+            END,    
+            member_9 = CASE
+                WHEN member_9 IS NULL THEN :email
+                ELSE member_9
+            END
+            WHERE id = :id',
+            sql_params:[
+                ':email' => $user_email,
+                ':id' => $group_id
+            ]     
+        );
+    }
+
+    public function insert_admin_into_group($group_id,$user_email){
+        return $this->execute(
+            sql: 'UPDATE groups
+            SET 
+            admin_1 = CASE
+                WHEN admin_1 IS NULL THEN :email
+                ELSE admin_1
+            END,    
+            admin_2 = CASE
+                WHEN admin_2 IS NULL THEN :email
+                ELSE admin_2
+            END',
+            sql_params:[
+                ':email' => $user_email,
+                ':id' => $group_id
+            ]
+        );
+    }
+
     private function query($sql,$response_class){
         $db = $this->connect();
         if($db == null){

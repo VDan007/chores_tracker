@@ -5,11 +5,13 @@ ensure_user_is_authenticated();
 
 $admin_user_email = $_SESSION['user_logged_in']->email;
 $admins_group = Data::get_group_by_email($admin_user_email);
-
+$admins_group_id = $admins_group[0]->id;
 $array_of_group_members = [];
+$array_of_group_admins = [];
+
 
 foreach(  (array) $admins_group[0]  as $key => $value){
-    if($key != 'id' && $key != 'group_name' && $key != 'password'){
+    if($key != 'id' && $key != 'group_name' && $key != 'password' && $key !='admin_1' && $key != 'admin_2'){
         if(isset($value)){
             array_push($array_of_group_members,$value);
         }else{
@@ -17,6 +19,21 @@ foreach(  (array) $admins_group[0]  as $key => $value){
         }
     }
 }
+foreach(  (array) $admins_group[0]  as $key => $value){
+    if( $key =='admin_1' || $key == 'admin_2'){
+        if(isset($value)){
+            array_push($array_of_group_admins,$value);
+        }else{
+            array_push($array_of_group_admins, "--");
+        }
+    }
+}
+
+$empty_place= find_empty_space_for_new_member($array_of_group_members);
+echo var_dump($empty_place);
+
+
+
 
 if(is_post()){
 
@@ -32,6 +49,7 @@ if(is_post()){
         if($name != null && $email != null && $password != null){
             try{
                 Data::create_user($name,$email,$password,0);
+                Data::insert_member_into_group($admins_group_id,false,$email);
                 redirect('index.php');
     
             }catch(Exception $e){
@@ -61,4 +79,4 @@ if(is_post()){
 
 
 
-view('admin/dashboard',Data::get_chores(), $array_of_group_members);
+view('admin/dashboard',Data::get_chores(), $array_of_group_members, $array_of_group_admins);

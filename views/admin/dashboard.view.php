@@ -7,6 +7,11 @@
 <div class="flex items-center gap-2 ">
     <div class="border-2 border-green-300 w-[180px] p-2 rounded-md">
         <h2 class="mb-2">Group members:</h2>
+        <h3 class="mb-1">Admins:</h3>
+        <?php foreach($model3 as $item) : ?>
+            <p> <?= $item  ?> </p>
+        <?php endforeach; ?>
+        <h3 class="mb-1">Members:</h3>
         <?php foreach($model2 as $item) : ?>
             <p> <?= $item  ?> </p>
         <?php endforeach; ?>

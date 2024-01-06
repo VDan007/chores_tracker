@@ -50,6 +50,16 @@ class Data{
         }
     }
 
+    static public function insert_member_into_group($group_id,$is_admin,$user_email){
+
+        if($is_admin){
+            return self::$ds->insert_admin_into_group($group_id,$user_email);
+        }else{
+            return self::$ds->insert_member_into_group($group_id,$user_email);
+        }
+        
+    }
+
     static public function remove_user($email){
         return self::$ds->remove_user($email);
     }

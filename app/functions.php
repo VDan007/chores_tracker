@@ -74,3 +74,12 @@ function quick_done($id,$status){
     $id = sanitize($id);
     Data::update_chore($id,$status);
 }
+
+function find_empty_space_for_new_member($array){
+    foreach($array as $key=>$value){
+        if($value == "--"){
+            return $key + 5;
+            break;
+        }
+    }
+}
