@@ -41,13 +41,17 @@ class Data{
         return self::$ds->get_users();
     }
 
-    static public function create_user($name,$email,$password){
+    static public function create_user($name,$email,$password,$is_admin){
         try{
-            return self::$ds->create_user($name,$email,$password);
+            return self::$ds->create_user($name,$email,$password,$is_admin);
         }
         catch(Exception $e){
             echo $e;
         }
+    }
+
+    static public function remove_user($email){
+        return self::$ds->remove_user($email);
     }
 
     static public function get_user_by_email($email){

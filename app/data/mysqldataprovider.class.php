@@ -53,14 +53,23 @@ class MySqlDataProvider{
         return $this->query(sql: "SELECT * FROM users WHERE email = '$email' ",response_class:'User');
     }
 
-    public function create_user($name,$email,$password){
+    public function create_user($name,$email,$password,$is_admin){
         return $this->execute(
             sql:'INSERT INTO users (email,password,name,is_admin) VALUES(:email,:password,:name,:is_admin)',
             sql_params:[
                 ':email' => $email,
                 ':password' => $password,
                 ':name' => $name,
-                ':is_admin' => 0
+                ':is_admin' => $is_admin
+            ]
+        );
+    }
+
+    public function remove_user($email){
+        return $this->execute(
+            sql:'DELETE  FROM users WHERE email = :email',
+            sql_params:[
+                ':email' => $email
             ]
         );
     }

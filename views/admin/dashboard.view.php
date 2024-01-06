@@ -21,25 +21,26 @@
         </div>     
     </div>
     <div id="add_new_member_div">
-            <form class="flex flex-col border border-green-300 items-end gap-3 p-3" action="">
+            <form class="flex flex-col border border-green-300 items-end gap-3 p-3" method="POST">
                 <label for="new_user_name">Name
-                    <input class="border" id="new_user_name" name="new_user_name" type="text">
+                    <input required class="border" id="new_user_name" name="new_user_name" type="text">
                 </label>
                 <label for="new_user_email">E-mail
-                    <input id="new_user_email" name="new_user_email" class="border" type="text">
+                    <input required id="new_user_email" name="new_user_email" class="border" type="email">
                 </label>
                 <label for="new_user_password">Password
-                    <input name="new_user_password" id="new_user_password" class="border" type="text">
+                    <input required name="new_user_password" id="new_user_password" class="border" type="text">
                 </label>
                 <input id="add_new_member_btn_submit" class="p-2 bg-green-300 cursor-pointer" type="submit" value="Add +">
+                <input type="hidden" name="add_member">
             </form>
     </div>
     <div id="remove_member_div">
-            <form class="flex flex-col border border-red-300 items-end gap-3 p-3" action="">
-                <label for="user_email_to_remove">Name
-                    <input class="border" id="user_email_to_remove" name="user_email_to_remove" type="text">
+            <form class="flex flex-col border border-red-300 items-end gap-3 p-3" method="POST">
+                <label for="user_email_to_remove">E-mail
+                    <input required class="border" id="user_email_to_remove" name="user_email_to_remove" type="email">
                 </label>
-                
+                <input type="hidden" name="remove_member">
                 <input id="remove_member_btn_submit" class="p-2 bg-red-300 cursor-pointer" type="submit" value="Remove -">
             </form>
     </div>
@@ -144,7 +145,7 @@
     toggle_show_hide_elements(remove_member_div);
 
     add_new_member_btn.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
-    add_new_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
+   // add_new_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
     remove_member_btn.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
-    remove_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
+    //remove_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
 </script>
