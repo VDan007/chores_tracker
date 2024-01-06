@@ -49,6 +49,22 @@ class MySqlDataProvider{
         return $this->query(sql:'SELECT * FROM users',response_class:'User');
     }
 
+    public function get_user_by_email($email){
+        return $this->query(sql: "SELECT * FROm users WHERE email = '$email' ",response_class:'User');
+    }
+
+    public function create_user($name,$email,$password){
+        return $this->execute(
+            sql:'INSERT INTO users (email,password,name,is_admin) VALUES(:email,:password,:name,:is_admin)',
+            sql_params:[
+                ':email' => $email,
+                ':password' => $password,
+                ':name' => $name,
+                ':is_admin' => 0
+            ]
+        );
+    }
+
     public function add_chore($title,$creator,$assigned_to,$due_date,$status,$description){
         return $this->execute(
             sql:'INSERT INTO chores (title,creator,assigned_to,due_date,status,description) VALUES(:title,:creator,:assigned_to,:due_date,:status,:description)',

@@ -10,3 +10,5 @@ require('functions.php');
 
 
 Data::initialize(new MySqlDataProvider);
+
+$view_bag;

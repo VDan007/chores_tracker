@@ -40,6 +40,14 @@ class Data{
     static public function get_users(){
         return self::$ds->get_users();
     }
+
+    static public function create_user($name,$email,$password){
+        return self::$ds->create_user($name,$email,$password);
+    }
+
+    static public function get_user_by_email($email){
+        return self::$ds->get_user_by_email($email);
+    }
     static public function get_group_by_email($email){
         return self::$ds->get_group_by_email($email);
     }
