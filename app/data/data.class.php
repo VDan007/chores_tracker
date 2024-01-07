@@ -76,4 +76,7 @@ class Data{
     static public function create_group($admin_email){
         return self::$ds->create_group($admin_email);
     }
+    static public function add_comment($chore_id,$comment,$user_email){
+        return self::$ds->add_comment($chore_id,$comment,$user_email);
+    }
 }

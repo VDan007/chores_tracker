@@ -10,6 +10,7 @@ class Chores{
     public $due_date;
     public $status;
     public $description;
+    public $comments;
 
 
 

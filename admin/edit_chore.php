@@ -30,6 +30,12 @@ if(is_get() && isset($_GET['id'])){
         Data::delete_chore($id);
 
         redirect('index.php');
+
+    }elseif(isset($_POST['add_comment'])){
+        $id = sanitize($_POST['id']);
+        $comment = sanitize($_POST['new_comment']);
+        Data::add_comment($id,$comment,$_SESSION['user_logged_in']->email);
+        redirect('index.php');
     }
 }else{
     redirect('index.php');

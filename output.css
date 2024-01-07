@@ -772,6 +772,10 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1956,6 +1960,11 @@ video {
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 
+.bg-yellow-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+}
+
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2580,7 +2589,7 @@ video {
 }
 
 *{
-  font-family: 'Press Start 2P', system-ui;
+  font-family: 'VT323', monospace;
 }
 
 @media (min-width: 640px) {

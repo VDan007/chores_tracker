@@ -13,6 +13,10 @@ class MySqlDataProvider{
         return $this->query(sql:"SELECT * FROM chores WHERE assigned_to = '$email' ",response_class:'Chores');
     }
 
+    public function get_chore_by_id($id){
+        return $this->query(sql: "SELECT * FROM chores WHERE id = '$id' ",response_class: 'Chores');
+    }
+
     public function update_chore($id,$status){
         return $this->execute(
             sql:'UPDATE chores SET status = :status WHERE id = :id',
@@ -151,6 +155,53 @@ class MySqlDataProvider{
                 ':group_name' => 'Family',
                 ':password' => 1234,
                 ':admin_1' => $admin_email
+            ]
+        );
+    }
+
+
+
+    public function add_comment($chore_id,$comment,$user_email){
+        //insert new comment into comment table
+        $sql = "INSERT INTO comments (comment,writer) VALUES (:comment,:user_email)";
+        $sql_params =[
+            ':comment' => $comment,
+            ':user_email' => $user_email
+        ];
+        
+        $db = $this->connect();
+        if($db == null){
+            return;
+        } 
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute($sql_params);
+        //get the comment id
+        $new_comment_id = $db->lastInsertId();
+
+        $stmt = null;
+        $db = null;
+
+        //update chor's comment column///
+        //-get chore
+        $chore = $this->get_chore_by_id($chore_id)[0];
+        //-decode JSON comment into array
+        $array = json_decode($chore->comments);
+        if($array == null){
+            $array = [];
+        }
+        //-push new comment id into array
+        $updated_array = $array + [$new_comment_id];
+        
+        //-encode to string
+        $encoded = json_encode($updated_array);
+        //-update chor's comment column with string
+        return $this->execute(
+            sql:"UPDATE chores SET comments = :encoded WHERE id = :id",
+            sql_params:[
+                ':encoded' => $encoded,
+                ':id' =>$chore_id
             ]
         );
     }

@@ -35,16 +35,23 @@
         <input type="hidden" name="id" value="<?= $model->id ?>">
         
         <label class="flex gap-1" for="description">Description:
-            <textarea class="border min-h-[150px] min-w-[280px] text-left p-1" name="description" id="description" type="text" value=""><?= $model->description ?>
-            </textarea>
+            <textarea class="border min-h-[150px] min-w-[280px] text-left p-1" name="description" id="description" type="text" value=""><?= $model->description ?></textarea>
         </label>
         
         <input type="hidden" name="id" value="<?= $model->id ?>">
 
         <button class="cursor-pointer  bg-green-300 p-1" type="submit" name="save" > save changes </button>
         <button class="text-white cursor-pointer  bg-black p-1" type="submit" name="delete"> delete chore </button>
-    
-        
+            
+        <label class="flex" for="comment">Add a Comment:
+            <textarea class="border min-h-[150px] min-w-[280px]" name="new_comment" type="textarea"></textarea>
+        </label>
+        <button type="submit" name="add_comment" class="cursor-pointer bg-yellow-300 p-1"> add comment </button>
     </form>
+
+</div>
+
+<div class="flex justify-center mt-9 border">
+    <h2>Comments</h2>
 </div>
 
