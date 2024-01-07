@@ -5,10 +5,10 @@ ensure_user_is_authenticated();
 
 
 ////////////////////// user options///////////////////////
-$users = Data::get_users();
-
+$all_users = Data::get_users();
+$group = Data::get_group_by_email($_SESSION['user_logged_in']->email)[0];
+$users = filter_users_by_group($all_users,$group);
 $array_of_user_options = array_map( fn($user)=> $user->email, $users);
-
 ////////////////////// user options///////////////////////
 
 if(is_post()){

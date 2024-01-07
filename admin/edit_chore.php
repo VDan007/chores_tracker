@@ -50,7 +50,11 @@ $status_array_to_display = array_merge([$chore_to_edit->status],$array_of_option
 
 
 /////////////////////////////// user options ///////////////////////////////////
-$users = Data::get_users();
+$group = Data::get_group_by_email($_SESSION['user_logged_in']->email)[0];
+
+$all_users = Data::get_users();
+
+$users = filter_users_by_group($all_users,$group);
 
 $array_of_user_options = array_map( fn($user)=> $user->email, $users);
 

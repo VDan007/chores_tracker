@@ -85,3 +85,16 @@ function find_empty_space_for_new_member($array){
         }
     }
 }
+
+function filter_users_by_group($users_array,$group_class){
+    $users_filtered = [];
+   
+    foreach($users_array as $user){
+        foreach( (array) $group_class as $key => $value){
+            if($user->email == $value){
+                array_push($users_filtered,$user);
+            }
+        }
+    }
+    return $users_filtered;
+}
