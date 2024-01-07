@@ -1,19 +1,16 @@
 
 
-
-
-
 <a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md mb-2 group " href="create_chore.php">create chore  <span class="text-6xl group-hover:animate-bounce">  +</span>  </a>
 <div class="flex items-center gap-2 ">
-    <div class="border-2 border-green-300 w-[180px] p-2 rounded-md">
+    <div class="border-2 border-green-300 w-[180px] p-2 rounded-md overflow-hidden">
         <h2 class="mb-2">Group members:</h2>
         <h3 class="mb-1">Admins:</h3>
         <?php foreach($model3 as $item) : ?>
-            <p> <?= $item  ?> </p>
+            <p class="text-sm"> <?= $item  ?> </p>
         <?php endforeach; ?>
         <h3 class="mb-1">Members:</h3>
         <?php foreach($model2 as $item) : ?>
-            <p> <?= $item  ?> </p>
+            <p class="text-sm"> <?= $item  ?> </p>
         <?php endforeach; ?>
     </div>
     <div class="flex flex-col gap-4">
@@ -51,74 +48,77 @@
     </div>
 </div>
 
-<h3 class="text-center my-5 text-3xl ">All chores</h3>
+<div class=""> 
 
-<div class=" grid grid-rows-auto grid-cols-8 gap-5">
-
-        <div class="col-start-1"  >
-            <h3>Title</h3>
-        </div>
-
-        <div  class="col-start-2">
-            <h3>Creator</h3>
-        </div>
-
-        <div class="col-start-3">
-            <h3>Creation date</h3>
-        </div>
-
-        <div class="col-start-4">
-            <h3>Assigned to</h3>
-        </div>
-
-        <div class="col-start-5">
-            <h3>Due date</h3>
-        </div>
-
-        <div class="col-start-6">
-            <h3>Status</h3>
-        </div>
-
-        <div class="col-start-7">
-            <h3>Description</h3>
-        </div>
-
-        <div class="col-start-8">
-           
-
-        </div>
-
-    <?php foreach($model as $key => $value) : ?>
-            <div class="col-start-1 ">
-                <?= $model[$key]->title ?>
+    <h3 class="text-center my-5 text-3xl ">All chores</h3>
+    
+    <div class=" grid grid-rows-auto repeat(8,minmax(80px,1fr) overflow-x-scroll md:overflow-x-hidden overflow-y-hidden custom gap-5 max-w-[1500px]">
+                <!-- grid-col-8 -->
+            <div class="col-start-1 "  >
+                <h3>Title</h3>
             </div>
-            <div class="col-start-2 ">
-                <?= $model[$key]->creator ?>
+    
+            <div  class="col-start-2">
+                <h3>Creator</h3>
             </div>
-            <div class="col-start-3 ">
-                <?= $model[$key]->creation_date ?>
+    
+            <div class="col-start-3">
+                <h3>Creation date</h3>
             </div>
-            <div class="col-start-4 ">
-                <?= $model[$key]->assigned_to ?>
+    
+            <div class="col-start-4">
+                <h3>Assigned to</h3>
             </div>
-            <div class="col-start-5 ">
-                <?= $model[$key]->due_date ?>
+    
+            <div class="col-start-5">
+                <h3>Due date</h3>
             </div>
-            <div class="col-start-6 ">
-                <?= $model[$key]->status ?>
+    
+            <div class="col-start-6">
+                <h3>Status</h3>
             </div>
-
-            <div class="col-start-7 ">
-                <?= $model[$key]->description ?>
+    
+            <div class="col-start-7">
+                <h3>Description</h3>
             </div>
-            
+    
             <div class="col-start-8">
-                <!-- $model[$key]->id  -->
-                <a class="bg-green-300 p-2" href="edit_chore.php?id=<?php echo $model[$key]->id ?>">Edit</a>
                
+    
             </div>
-
-    <?php endforeach; ?>    
+    
+        <?php foreach($model as $key => $value) : ?>
+                <div class="col-start-1  ">
+                    <?= $model[$key]->title ?>
+                </div>
+                <div class="col-start-2 ">
+                    <?= $model[$key]->creator ?>
+                </div>
+                <div class="col-start-3 ">
+                    <?= $model[$key]->creation_date ?>
+                </div>
+                <div class="col-start-4 ">
+                    <?= $model[$key]->assigned_to ?>
+                </div>
+                <div class="col-start-5 ">
+                    <?= $model[$key]->due_date ?>
+                </div>
+                <div class="col-start-6 ">
+                    <?= $model[$key]->status ?>
+                </div>
+    
+                <div class="col-start-7 ">
+                    <?= $model[$key]->description ?>
+                </div>
+                
+                <div class="col-start-8">
+                    <!-- $model[$key]->id  -->
+                    <a class="bg-green-300 p-2" href="edit_chore.php?id=<?php echo $model[$key]->id ?>">Edit</a>
+                   
+                </div>
+    
+        <?php endforeach; ?>    
+    </div>
 </div>
 
 <script>
@@ -154,3 +154,6 @@
     remove_member_btn.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
     //remove_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
 </script>
+
+
+<!-- //////////////////////////////////// -->
