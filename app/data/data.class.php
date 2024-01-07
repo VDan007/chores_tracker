@@ -9,8 +9,8 @@ class Data{
         return self::$ds = $data_provider;
     }
 
-    static public function get_chores(){
-        return self::$ds->get_chores();
+    static public function get_chores_by_admin($email){
+        return self::$ds->get_chores_by_admin($email);
     } 
 
     static public function get_chores_of_user($email){
@@ -72,5 +72,8 @@ class Data{
     }
     static public function get_group_by_email($email){
         return self::$ds->get_group_by_email($email);
+    }
+    static public function create_group($admin_email){
+        return self::$ds->create_group($admin_email);
     }
 }

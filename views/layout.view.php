@@ -15,7 +15,7 @@
 
         <div>
             <a href="index.php">
-                <img src="http://localhost:667/school_project_chore_tracker/images/logo_placeholder.png" alt="logo placeholder image">
+                <img class="max-w-[150px]" src="http://localhost:667/school_project_chore_tracker/images/logo_placeholder.png" alt="logo placeholder image">
 
             </a>
         </div>

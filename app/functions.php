@@ -42,9 +42,6 @@ function authenticate_user($email, $password){
 
    return $user_to_find;
 
-    
-
-
 }
 
 function is_user_authenticated(){

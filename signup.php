@@ -26,6 +26,7 @@ if(is_post()){
 
     try{
         Data::create_user($name,$email,$password,1);
+        Data::create_group($email);
         $view_bag = 'User created successfully! </br> You will be redirected to login shortly!';
         echo '<script>setTimeout(function() { window.location.href = "login.php"; }, 3500);</script>';
 

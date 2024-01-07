@@ -90,4 +90,4 @@ if(is_post()){
 
 
 
-view('admin/dashboard',Data::get_chores(), $array_of_group_members, $array_of_group_admins);
+view('admin/dashboard',Data::get_chores_by_admin($admin_user_email), $array_of_group_members, $array_of_group_admins);

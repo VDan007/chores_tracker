@@ -5,8 +5,8 @@ require('user.class.php');
 
 class MySqlDataProvider{
 
-    public function get_chores(){
-        return $this->query(sql:'SELECT * FROM chores',response_class:'Chores');
+    public function get_chores_by_admin($email){
+        return $this->query(sql:"SELECT * FROM chores WHERE creator = '$email' ",response_class:'Chores');
     }
 
     public function get_chores_of_user($email){
@@ -140,6 +140,17 @@ class MySqlDataProvider{
             sql_params:[
                 ':email' => $user_email,
                 ':id' => $group_id
+            ]
+        );
+    }
+
+    public function create_group($admin_email){
+        return $this->execute(
+            sql: "INSERT INTO groups (group_name,password,admin_1)VALUES(:group_name,:password,:admin_1)",
+            sql_params:[
+                ':group_name' => 'Family',
+                ':password' => 1234,
+                ':admin_1' => $admin_email
             ]
         );
     }

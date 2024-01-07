@@ -3,7 +3,7 @@
 
 
 
-<a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md mb-2" href="create_chore.php">create chore  <span class="text-6xl">  +</span>  </a>
+<a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md mb-2 group " href="create_chore.php">create chore  <span class="text-6xl group-hover:animate-bounce">  +</span>  </a>
 <div class="flex items-center gap-2 ">
     <div class="border-2 border-green-300 w-[180px] p-2 rounded-md">
         <h2 class="mb-2">Group members:</h2>

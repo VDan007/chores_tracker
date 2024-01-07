@@ -661,30 +661,6 @@ video {
   top: 0px;
 }
 
-.right-\[-1px\] {
-  right: -1px;
-}
-
-.right-\[-10px\] {
-  right: -10px;
-}
-
-.right-\[-20px\] {
-  right: -20px;
-}
-
-.right-\[-100\%\] {
-  right: -100%;
-}
-
-.right-\[10px\] {
-  right: 10px;
-}
-
-.right-\[-100px\] {
-  right: -100px;
-}
-
 .isolate {
   isolation: isolate;
 }
@@ -784,16 +760,16 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .box-border {
@@ -907,6 +883,10 @@ video {
   min-height: 100vh;
 }
 
+.w-\[180px\] {
+  width: 180px;
+}
+
 .w-\[this-is\\\\\] {
   width: this-is\\;
 }
@@ -917,10 +897,6 @@ video {
 
 .w-\[weird-and-invalid\] {
   width: weird-and-invalid;
-}
-
-.w-\[180px\] {
-  width: 180px;
 }
 
 .min-w-\[280px\] {
@@ -943,8 +919,8 @@ video {
   max-width: 500px;
 }
 
-.max-w-\[250px\] {
-  max-width: 250px;
+.max-w-\[200px\] {
+  max-width: 200px;
 }
 
 .flex-shrink {
@@ -1481,6 +1457,14 @@ video {
   gap: 0.25rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -1491,14 +1475,6 @@ video {
 
 .gap-6 {
   gap: 1.5rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -1957,12 +1933,6 @@ video {
 .border-red-300 {
   --tw-border-opacity: 1;
   border-color: rgb(252 165 165 / var(--tw-border-opacity));
-}
-
-.border-x-green-300 {
-  --tw-border-opacity: 1;
-  border-left-color: rgb(134 239 172 / var(--tw-border-opacity));
-  border-right-color: rgb(134 239 172 / var(--tw-border-opacity));
 }
 
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
@@ -2644,6 +2614,37 @@ video {
   }
 }
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hover\:animate-spin:hover {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.hover\:animate-pulse:hover {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.hover\:animate-ping:hover {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 .hover\:font-bold:hover {
   font-weight: 700;
 }
@@ -2664,6 +2665,32 @@ video {
 
 .hover\:focus\:text-center:focus:hover {
   text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.group:hover .group-hover\:animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.group:hover .group-hover\:animate-bounce {
+  animation: bounce 1s infinite;
 }
 
 @media (min-width: 640px) {
