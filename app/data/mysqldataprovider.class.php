@@ -178,7 +178,7 @@ class MySqlDataProvider{
 
         $stmt->execute($sql_params);
         //get the comment id
-        $new_comment_id = $db->lastInsertId();
+        $new_comment_id =  $db->lastInsertId();
 
         $stmt = null;
         $db = null;
@@ -186,16 +186,18 @@ class MySqlDataProvider{
         //update chor's comment column///
         //-get chore
         $chore = $this->get_chore_by_id($chore_id)[0];
+        
         //-decode JSON comment into array
         $array = json_decode($chore->comments);
         if($array == null){
             $array = [];
         }
+        
         //-push new comment id into array
-        $updated_array = $array + [$new_comment_id];
+        array_push($array,$new_comment_id);
         
         //-encode to string
-        $encoded = json_encode($updated_array);
+        $encoded = json_encode($array);
         //-update chor's comment column with string
         return $this->execute(
             sql:"UPDATE chores SET comments = :encoded WHERE id = :id",

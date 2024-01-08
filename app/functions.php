@@ -1,6 +1,6 @@
 <?php
 
-function view($name = 'page',$model = 1,$model2 = 1, $model3 = 1){
+function view($name = 'page',$model = 1,$model2 = 1, $model3 = 1,$model4=1){
     global $view_bag;
     require(APP_PATH . '/views/layout.view.php');
 }
@@ -97,4 +97,11 @@ function filter_users_by_group($users_array,$group_class){
         }
     }
     return $users_filtered;
+}
+
+
+
+
+function debug($text,$value_to_echo){
+    echo $text . ' ' . var_dump($value_to_echo);
 }

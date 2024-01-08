@@ -53,5 +53,8 @@
 
 <div class="flex justify-center mt-9 border">
     <h2>Comments</h2>
+    <div>
+        
+    </div>
 </div>
 
