@@ -36,7 +36,7 @@ if(is_get() && isset($_GET['id'])){
         $id = sanitize($_POST['id']);
         $comment = sanitize($_POST['new_comment']);
         Data::add_comment($id,$comment,$_SESSION['user_logged_in']->email);
-        redirect('index.php');
+        redirect("edit_chore.php?id=$id");
     }
 }else{
     redirect('index.php');
@@ -59,7 +59,12 @@ $status_array_to_display = array_merge([$chore_to_edit->status],$array_of_option
 
 //get array of comments so I can echo them
 $comment_ids = json_decode($chore_to_edit->comments);
-$array_of_comment_objects = array_map(fn($id)=> Data::get_comment_by_id($id)[0],$comment_ids);
+if($comment_ids !== null){
+    $array_of_comment_objects = array_map(fn($id)=> Data::get_comment_by_id($id)[0],$comment_ids);
+
+}else{
+    $array_of_comment_objects = [];
+}
 
 
 ///////////////////////////////comments//////////////////////////////////

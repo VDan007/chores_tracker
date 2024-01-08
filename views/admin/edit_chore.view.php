@@ -56,11 +56,11 @@
 
     <div>
         <?php foreach($model4 as $comment) : ?>
-            <div>
-                <p>Author: <?= $comment->writer ?></p>
+            <div class="border max-w-[330px] overflow-hidden">
                 <p>
                     <?= $comment->comment ?>
                 </p>
+                <p>Author: <?= $comment->writer ?></p>
             </div>
         <?php endforeach ; ?>
     </div>
