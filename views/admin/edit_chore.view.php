@@ -51,10 +51,19 @@
 
 </div>
 
-<div class="flex justify-center mt-9 border">
+<div class="flex flex-col items-center mt-9 border">
     <h2>Comments</h2>
+
     <div>
-        
+        <?php foreach($model4 as $comment) : ?>
+            <div>
+                <p>Author: <?= $comment->writer ?></p>
+                <p>
+                    <?= $comment->comment ?>
+                </p>
+            </div>
+        <?php endforeach ; ?>
     </div>
+
 </div>
 

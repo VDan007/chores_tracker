@@ -159,6 +159,13 @@ class MySqlDataProvider{
         );
     }
 
+    public function get_comment_by_id($comment_id){
+        return $this->query(
+            sql: "SELECT * FROM comments WHERE '$comment_id' = id",
+            response_class:'Comment'
+        );
+    }
+
 
 
     public function add_comment($chore_id,$comment,$user_email){

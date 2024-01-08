@@ -79,4 +79,7 @@ class Data{
     static public function add_comment($chore_id,$comment,$user_email){
         return self::$ds->add_comment($chore_id,$comment,$user_email);
     }
+    static public function get_comment_by_id($comment_id){
+        return self::$ds->get_comment_by_id($comment_id);
+    }
 }

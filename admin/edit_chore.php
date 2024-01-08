@@ -9,6 +9,7 @@ if(is_get() && isset($_GET['id'])){
 
     $id = sanitize($_GET['id']);
     $chores = Data::get_chores_by_admin($_SESSION['user_logged_in']->email);
+    
 
 }elseif(is_post()){
     
@@ -56,7 +57,9 @@ $status_array_to_display = array_merge([$chore_to_edit->status],$array_of_option
 
 ///////////////////////////////comments//////////////////////////////////
 
-
+//get array of comments so I can echo them
+$comment_ids = json_decode($chore_to_edit->comments);
+$array_of_comment_objects = array_map(fn($id)=> Data::get_comment_by_id($id)[0],$comment_ids);
 
 
 ///////////////////////////////comments//////////////////////////////////
@@ -81,4 +84,4 @@ array_unshift($array_of_user_options,$current_owner_of_chore);
 /////////////////////////////// user options ///////////////////////////////////
 
 
-view('admin/edit_chore',$chore_to_edit, $status_array_to_display, $array_of_user_options);
+view('admin/edit_chore',$chore_to_edit, $status_array_to_display, $array_of_user_options, $array_of_comment_objects);
