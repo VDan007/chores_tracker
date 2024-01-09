@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col justify-between min-h-screen">
     <header class="flex justify-between items-center border-black border-8 rounded-md">
 
         <div>
@@ -31,7 +31,7 @@
 
     </header>
 
-    <div class="min-h-[70vh]" style="margin-bottom:60px">
+    <div  >
         <?php
 
             require("$name.view.php");
@@ -42,7 +42,7 @@
 
 
 
-    <footer class="border-8 border-black">
+    <footer class="border-8 border-black mt-4">
         <nav>
             <ul class="flex gap-4 p-4 justify-end text-3xl">
                 <li><a class="hover:border-4 border-black rounded-md p-1" href="h"> TERMS OF USE </a></li>

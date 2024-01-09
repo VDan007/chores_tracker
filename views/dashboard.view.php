@@ -57,7 +57,7 @@
                 <div class="col-start-7">
                     <!-- $model[$key]->id  -->
                     <a class="bg-green-300 p-2 border-2 border-black hover:bg-green-500 rounded-md" href="details.php?id=<?php echo $incomplite_chores[$key]->id ?>">EDIT</a>
-                    <a class="bg-red-300 border-2 border-black hover:bg-red-500 rounded-md  p-2" href="dashboard.php?action=quick_done&id=<?php echo $incomplite_chores[$key]->id; ?>&status=done" >Done</a>
+                    <a class="bg-red-300 border-2 border-black hover:bg-red-500 rounded-md  p-2" href="dashboard.php?action=quick_done&id=<?php echo $incomplite_chores[$key]->id; ?>&status=done" >DONE</a>
                 </div>
             
             
@@ -98,7 +98,7 @@
             </div>
             <div class="col-start-7">
                 <!-- $model[$key]->id  -->
-                <a class="bg-green-300 hover:bg-green-500 border-2 border-black rounded-md p-2" href="details.php?id=<?php echo $complete_chores[$key]->id ?>">Edit</a>
+                <a class="bg-green-300 hover:bg-green-500 border-2 border-black rounded-md p-2" href="details.php?id=<?php echo $complete_chores[$key]->id ?>">EDIT</a>
                
             </div>
         
