@@ -72,49 +72,48 @@
     <button id="close_delete_member_modal" class="absolute top-1 left-1 font-3xl border-2 border-black p-1 hover:bg-red-300 rounded-sm" >X</button>
     <form class="flex flex-col border border-red-300 items-end gap-3 p-3" method="POST">
         <div class="min-w-[50px] min-h-[50px]"></div>
-        <label for="user_email_to_remove">E-mail
+        <label for="user_email_to_remove">E-MAIL:
             <input required class="border-2 border-black rounded-md pl-1" id="user_email_to_remove" name="user_email_to_remove" type="email">
         </label>
-        <div class="min-w-[80px] min-h-[50px]"></div>
+        <div class="min-w-[40px] min-h-[30px]"></div>
         <input type="hidden" name="remove_member">
         <input id="remove_member_btn_submit" class="p-2  bg-red-300 cursor-pointer border-2 border-black hover:bg-red-500 rounded-md" type="submit" value="REMOVE -">
     </form>
 </dialog>
    
-</div>
-</div>
-<div class=""> 
 
-    <h3 class="text-center my-5 text-3xl ">All chores</h3>
+<div class="border-8 border-black rounded-md mt-4 max-h-[500px] overflow-y-scroll"> 
+
+    <h3 class="text-center my-5 text-3xl ">ALL CHORES</h3>
     
-    <div class=" grid grid-rows-auto repeat(8,minmax(80px,1fr) overflow-x-scroll md:overflow-x-hidden overflow-y-hidden custom gap-5 max-w-[1500px]">
+    <div class="mx-4 my-2 grid grid-rows-auto repeat(8,minmax(80px,1fr) gap-5 max-w-[1500px]">
                 <!-- grid-col-8 -->
             <div class="col-start-1 "  >
-                <h3>Title</h3>
+                <h3 class="text-xl">TITLE</h3>
             </div>
     
             <div  class="col-start-2">
-                <h3>Creator</h3>
+                <h3 class="text-xl">CREATOR</h3>
             </div>
     
             <div class="col-start-3">
-                <h3>Creation date</h3>
+                <h3 class="text-xl">CREATION DATE</h3>
             </div>
     
             <div class="col-start-4">
-                <h3>Assigned to</h3>
+                <h3 class="text-xl">ASSIGNED TO</h3>
             </div>
     
             <div class="col-start-5">
-                <h3>Due date</h3>
+                <h3 class="text-xl">DUE DATE</h3>
             </div>
     
             <div class="col-start-6">
-                <h3>Status</h3>
+                <h3 class="text-xl">STATUS</h3>
             </div>
     
             <div class="col-start-7">
-                <h3>Description</h3>
+                <h3 class="text-xl">DESCRIPTION</h3>
             </div>
     
             <div class="col-start-8">
@@ -148,7 +147,7 @@
                 
                 <div class="col-start-8">
                     <!-- $model[$key]->id  -->
-                    <a class="bg-green-300 p-2" href="edit_chore.php?id=<?php echo $model[$key]->id ?>">Edit</a>
+                    <a class="border-2 border-black bg-green-300 p-2 rounded-md hover:bg-green-500" href="edit_chore.php?id=<?php echo $model[$key]->id ?>">EDIT</a>
                    
                 </div>
     
