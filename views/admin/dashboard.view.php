@@ -1,73 +1,86 @@
 
 <!-- CONTAINER START -->
-<div class=" border-8 border-black mt-4"> 
+<div class=" border-8 border-black mt-4 rounded-md"> 
  <!-- BUTTONS DIV START   -->
- <div class="flex">
-    <a class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group " href="create_chore.php">CREATE CHORE<span class="text-5xl">+</span>  </a>
-    <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group"  id="add_new_member_btn">ADD MEMBER <span class="text-5xl" >+</span></button>
-    <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-red-300 hover:bg-red-500 max-w-[220px] text-3xl rounded-md mb-2 group "  id="remove_member_btn">REMOVE MEMBER <span class="text-5xl" >-</span></button>
-        
- </div>
+    <div class="flex">
+        <a class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group " href="create_chore.php">CREATE CHORE<span class="text-5xl">+</span>  </a>
+        <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group"  id="add_new_member_btn">ADD MEMBER <span class="text-5xl" >+</span></button>
+        <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-red-300 hover:bg-red-500 max-w-[220px] text-3xl rounded-md mb-2 group "  id="remove_member_btn">REMOVE MEMBER <span class="text-5xl" >-</span></button>
+            
+    </div>
+<!-- GROUP MEMBERS DIV START -->
+    <div class="flex gap-2 border-4 border-black rounded-md m-2 relative">
 
-<div class="flex gap-2 border-4 border-black rounded-md m-2 relative">
-
-        <h2 class="m-2 static top-0 left-0 text-2xl">Group members:</h2>
-        <div class=" overflow-hidden flex">
-            <div class="m-2 border-2 border-black p-2 flex flex-col ">
-                <h3 class=" text-2xl">Admins:</h3>
-                <?php foreach($model3 as $item) : ?>
-                    <div class="">
-                        <p class="text-xl"> <?= $item  ?> </p>
-
-                    </div>
-                <?php endforeach; ?>
-    
-            </div>
-            <div class="m-2 border-2 border-black p-2 flex flex-wrap">
-                <h3 class=" text-2xl">Members: </h3>
-                
-                    <?php foreach($model2 as $item) : ?>
-                        <div class="min-w-[120px] mx-2">
+            <h2 class="m-2 static top-0 left-0 text-2xl">Group members:</h2>
+            <div class=" overflow-hidden flex">
+                <div class="m-2 border-2 border-black p-2 flex flex-col ">
+                    <h3 class=" text-2xl">Admins:</h3>
+                    <?php foreach($model3 as $item) : ?>
+                        <div class="">
                             <p class="text-xl"> <?= $item  ?> </p>
-    
+
                         </div>
                     <?php endforeach; ?>
+        
+                </div>
+                <div class="m-2 border-2 border-black p-2 flex  flex-wrap">
+                    <h3 class=" text-2xl">Members: </h3>
+                    
+                        <?php foreach($model2 as $item) : ?>
+                            <div class="min-w-[80px] mx-2">
+                                <p class="text-xl"> <?= $item  ?> </p>
+        
+                            </div>
+                        <?php endforeach; ?>
 
+                    
+        
+                </div>
                 
-    
             </div>
-            
+    </div>
+    
+           
+    
+           
+</div>
+<!-- ADD MEMBER DIALOG -->
+<dialog id="add_member_dialog" class="border-4 border-black relative rounded-md">
+    <button id="close_add_member_modal" class="absolute top-1 left-1 font-3xl border-2 border-black p-1 hover:bg-red-300 rounded-sm" >X</button>
+    <form class="flex flex-col border border-green-300 items-end gap-3 p-3" method="POST">
+        <label for="new_user_name">NAME:
+            <input required class="border border-black pl-1 rounded-md" id="new_user_name" name="new_user_name" type="text">
+        </label>
+        <label for="new_user_email">E-MAIL:
+             <input required id="new_user_email" name="new_user_email" class="border border-black pl-1 rounded-md" type="email">
+        </label>
+        <label for="new_user_password">PASSWORD:
+            <input required name="new_user_password" id="new_user_password" class="border border-black pl-1 rounded-md" type="text">
+        </label>
+        <div class="flex justify-between items-center  min-w-[100%]">
+            <label class="flex items-center" for="add_as_admin">ADMIN: 
+                <input class="ml-1 border-2 border-black rounded-sm appearance-none w-4 h-4 checked:bg-green-500 cursor-pointer bg-white"  type="checkbox" value="add_as_admin"  name="add_as_admin" id="add_as_admin">
+            </label>
+            <input id="add_new_member_btn_submit" class="p-2 ; bg-green-300 cursor-pointer border-2 border-black hover:bg-green-500 rounded-md" type="submit" value="ADD +">
         </div>
-    </div>
-    
-           
-    
-           
-    </div>
-    <div id="add_new_member_div">
-            <form class="flex flex-col border border-green-300 items-end gap-3 p-3" method="POST">
-                <label for="new_user_name">Name
-                    <input required class="border" id="new_user_name" name="new_user_name" type="text">
-                </label>
-                <label for="new_user_email">E-mail
-                    <input required id="new_user_email" name="new_user_email" class="border" type="email">
-                </label>
-                <label for="new_user_password">Password
-                    <input required name="new_user_password" id="new_user_password" class="border" type="text">
-                </label>
-                <input id="add_new_member_btn_submit" class="p-2 bg-green-300 cursor-pointer" type="submit" value="Add +">
-                <input type="hidden" name="add_member">
-            </form>
-    </div>
-    <div id="remove_member_div">
-            <form class="flex flex-col border border-red-300 items-end gap-3 p-3" method="POST">
-                <label for="user_email_to_remove">E-mail
-                    <input required class="border" id="user_email_to_remove" name="user_email_to_remove" type="email">
-                </label>
-                <input type="hidden" name="remove_member">
-                <input id="remove_member_btn_submit" class="p-2 bg-red-300 cursor-pointer" type="submit" value="Remove -">
-            </form>
-    </div>
+        <input type="hidden" name="add_member">
+    </form>
+
+</dialog>
+<!-- DELETE MEMBER DIALOG -->
+<dialog id = "delete_member_dialog" class="border-4 border-black relative rounded-md">
+    <button id="close_delete_member_modal" class="absolute top-1 left-1 font-3xl border-2 border-black p-1 hover:bg-red-300 rounded-sm" >X</button>
+    <form class="flex flex-col border border-red-300 items-end gap-3 p-3" method="POST">
+        <div class="min-w-[50px] min-h-[50px]"></div>
+        <label for="user_email_to_remove">E-mail
+            <input required class="border-2 border-black rounded-md pl-1" id="user_email_to_remove" name="user_email_to_remove" type="email">
+        </label>
+        <div class="min-w-[80px] min-h-[50px]"></div>
+        <input type="hidden" name="remove_member">
+        <input id="remove_member_btn_submit" class="p-2  bg-red-300 cursor-pointer border-2 border-black hover:bg-red-500 rounded-md" type="submit" value="REMOVE -">
+    </form>
+</dialog>
+   
 </div>
 </div>
 <div class=""> 
@@ -144,37 +157,29 @@
 </div>
 
 <script>
-    const add_new_member_div = document.getElementById('add_new_member_div');
     const add_new_member_btn = document.getElementById('add_new_member_btn');
     const add_new_member_btn_submit = document.getElementById('add_new_member_btn_submit');
-    const remove_member_div = document.getElementById('remove_member_div');
+    const add_member_dialog = document.getElementById('add_member_dialog');
+    const close_add_member_modal = document.getElementById('close_add_member_modal');
+    const close_delete_member_modal = document.getElementById('close_delete_member_modal');
+    const delete_member_dialog = document.getElementById('delete_member_dialog');
     const remove_member_btn = document.getElementById('remove_member_btn');
-    const remove_member_btn_submit = document.getElementById('remove_member_btn_submit');
-
-    function toggle_show_hide_elements(element){
-        if(element.style.display == 'none'){
-            element.style.display = 'flex';
-        }else{
-            element.style.display = 'none';
-        }
 
 
-    //    if(element.classList.contains('hidden')){
-    //     element.classList.remove('hidden');
-    //     element.classList.add('flex');
-    //    }else{
-    //     element.classList.remove('flex');
-    //     element.classList.add('hidden');
-    //    }
+    add_new_member_btn.addEventListener('click',() => openModal(add_member_dialog));
+    close_add_member_modal.addEventListener('click',() => closeModal(add_member_dialog));
+    add_new_member_btn_submit.addEventListener('click',() => closeModal(add_member_dialog));
+    remove_member_btn.addEventListener('click',() => openModal(delete_member_dialog));
+    close_delete_member_modal.addEventListener('click', () => closeModal(delete_member_dialog));
+
+
+    function openModal(modal){
+        modal.showModal();
     }
-
-    toggle_show_hide_elements(add_new_member_div);
-    toggle_show_hide_elements(remove_member_div);
-
-    add_new_member_btn.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
-   // add_new_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(add_new_member_div));
-    remove_member_btn.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
-    //remove_member_btn_submit.addEventListener('click',()=>toggle_show_hide_elements(remove_member_div));
+    function closeModal(modal){
+        modal.close();
+    }
+    
 </script>
 
 
