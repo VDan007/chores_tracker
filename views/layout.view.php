@@ -12,20 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-<body class="flex flex-col min-h-screen px-2">
-    <header class="flex justify-between items-center">
+<body class="flex flex-col min-h-screen">
+    <header class="flex justify-between items-center border-black border-8 rounded-sm">
 
         <div>
             <a href="index.php">
-                <img class="max-w-[150px]" src="http://localhost:667/school_project_chore_tracker/images/logo_placeholder.png" alt="logo placeholder image">
+                <img class="max-w-[150px] hover:border-8 border-black " src="http://localhost:667/school_project_chore_tracker/images/logo_placeholder.png" alt="logo placeholder image">
 
             </a>
         </div>
         <nav>
-            <ul class="flex gap-4 pr-4">
-                <?php echo  isset($_SESSION['user_logged_in']) ? '<li> <a href="http://localhost:667/school_project_chore_tracker/logout.php"> logout </a>  </li>' :'' ?>
-                <li class="">about</li>
-                <li>contact</li>
+            <ul class="flex gap-4 pr-4 text-3xl">
+                <?php echo  isset($_SESSION['user_logged_in']) ? '<li> <a class="hover:border-4 border-black rounded-sm p-2" href="http://localhost:667/school_project_chore_tracker/logout.php"> LOGOUT </a>  </li>' :'' ?>
+                <li><a class="hover:border-4 border-black rounded-sm p-2" href="h"> ABOUT </a></li>
+                <li><a class="hover:border-4 border-black rounded-sm p-2" href="h"> CONTACT </a></li>
             </ul>
         </nav>
 
@@ -42,11 +42,11 @@
 
 
 
-    <footer>
+    <footer class="border-8 border-black">
         <nav>
-            <ul class="flex gap-4 pr-4 justify-end">
-                <li>Terms of use</li>
-                <li>Privacy Policy</li>
+            <ul class="flex gap-4 p-4 justify-end text-3xl">
+                <li><a class="hover:border-4 border-black rounded-sm p-1" href="h"> TERMS OF USE </a></li>
+                <li><a class="hover:border-4 border-black rounded-sm p-1" href="h"> PRIVACY POLICY </a></li>
             </ul>
         </nav>
     </footer>

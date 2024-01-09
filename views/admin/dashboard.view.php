@@ -1,8 +1,19 @@
 
+<!-- CONTAINER START -->
+<div class=" border-8 border-black mt-4"> 
+ <!-- BUTTONS DIV START   -->
+ <div class="flex">
+    <a class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group " href="create_chore.php">CREATE CHORE<span class="text-5xl">+</span>  </a>
+    <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group"  id="add_new_member_btn">ADD MEMBER <span class="text-5xl" >+</span></button>
+    <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-red-300 hover:bg-red-500 max-w-[220px] text-3xl rounded-md mb-2 group "  id="remove_member_btn">REMOVE MEMBER <span class="text-5xl" >-</span></button>
+        
+ </div>
 
-<a class="flex p-2 justify-between items-center gap-4 bg-green-300 max-w-[180px] rounded-md mb-2 group " href="create_chore.php">create chore  <span class="text-6xl group-hover:animate-bounce">  +</span>  </a>
+
+
+
 <div class="flex items-center gap-2 ">
-    <div class="border-2 border-green-300 w-[180px] p-2 rounded-md overflow-hidden">
+    <div class="border-2 border-green-300 w-[250px] p-2 rounded-md overflow-hidden">
         <h2 class="mb-2">Group members:</h2>
         <h3 class="mb-1">Admins:</h3>
         <?php foreach($model3 as $item) : ?>
@@ -14,13 +25,9 @@
         <?php endforeach; ?>
     </div>
     <div class="flex flex-col gap-4">
-        <div class="border-2 border-green-300 rounded-md p-2">
-            <button id="add_new_member_btn">Add member <span>+</span></button>
-        </div>    
+           
     
-        <div class="border-2 border-red-300 rounded-md p-2">
-            <button id="remove_member_btn">Remove member <span>-</span></button>
-        </div>     
+           
     </div>
     <div id="add_new_member_div">
             <form class="flex flex-col border border-green-300 items-end gap-3 p-3" method="POST">
@@ -47,7 +54,7 @@
             </form>
     </div>
 </div>
-
+</div>
 <div class=""> 
 
     <h3 class="text-center my-5 text-3xl ">All chores</h3>
