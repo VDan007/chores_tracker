@@ -31,7 +31,7 @@
 
     </header>
 
-    <div  >
+    <div class="relative "  >
         <?php
 
             require("$name.view.php");
@@ -42,7 +42,7 @@
 
 
 
-    <footer class="border-8 border-black mt-4">
+    <footer class="border-8 border-black rounded-md">
         <nav>
             <ul class="flex gap-4 p-4 justify-end text-3xl">
                 <li><a class="hover:border-4 border-black rounded-md p-1" href="h"> TERMS OF USE </a></li>

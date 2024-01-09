@@ -70,7 +70,7 @@
 </div>
 
 
-<div class="border-8 border-black rounded-md mt-4 max-h-[500px] min-h-[300px] overflow-y-scroll">
+<div class="border-8 border-black rounded-md my-4 max-h-[500px] min-h-[300px] overflow-y-scroll">
     <h2 class="text-center my-5 text-3xl ">DONE CHORES</h2>
     <div class="mx-4 my-2 grid grid-rows-auto repeat(7,minmax(80px,1fr) gap-5 max-w-[1500px]">
     

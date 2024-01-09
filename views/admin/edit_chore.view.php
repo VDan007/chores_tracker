@@ -1,5 +1,5 @@
 
-<div class="flex items-start justify-around relative border-8 border-black mt-4 pt-14 pb-8 rounded-md">
+<div class="flex items-start justify-around relative border-8 border-black my-4 pt-14 pb-8 rounded-md">
 
     <a class="bg-red-300 block border-4 border-black hover:bg-red-500 rounded-md  max-w-[150px] text-center p-1 absolute left-1 top-1" href="index.php"> <- BACK TO DASHBOARD</a>
 

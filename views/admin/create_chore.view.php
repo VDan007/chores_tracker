@@ -1,5 +1,5 @@
 
-<div class="border-8 border-black rounded-md relative mt-4">
+<div class="border-8 border-black rounded-md relative mt-4 mb-4">
     <a class="bg-red-300 block border-4 border-black hover:bg-red-500 rounded-md  max-w-[150px] text-center p-1 absolute left-1 top-1" href="index.php"> <- BACK TO DASHBOARD</a>
     
     

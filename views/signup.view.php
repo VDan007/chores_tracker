@@ -3,24 +3,24 @@
 
 <div class="flex flex-col justify-center items-center" >
 
-<h1>Sign Up</h1>
+<h1 class="text-3xl">SIGN UP</h1>
 
-<form action="" method='POST' class="flex flex-col gap-4 mt-2">
+<form action="" method='POST' class="flex flex-col gap-2 mt-2">
 
-<label for="name">Name
-    <input required class="border" id="name" name="name" type="text" placeholder="Your name goes here">
+<label class="flex flex-col text-2xl" for="name">NAME:
+    <input required class="border-2 border-black pl-2" id="name" name="name" type="text" placeholder="Your name goes here">
 </label>
 
-<label for="email">E-mail
-    <input required type="email" class="border" name="email" id="email" placeholder="Your email goes here">
+<label class="flex flex-col text-2xl" for="email">E-MAIL:
+    <input required type="email" class="border-2 border-black pl-2" name="email" id="email" placeholder="Your email goes here">
 </label>
 
-<label for="password">Your password
-    <input required type="password" name="password" id="password" class="border">
+<label class="flex flex-col text-2xl" for="password">YOUR PASSWORD:
+    <input required type="password" name="password" id="password" class="border-2 border-black pl-2">
 </label>
 
-<label for="password_again">Your password again
-    <input required type="password" class="border" name="password_again" id="password_again">
+<label class="flex flex-col text-2xl" for="password_again">YOUR PASSWORD AGAIN:
+    <input required type="password" class="border-2 border-black pl-2" name="password_again" id="password_again">
 </label>
 
 
@@ -48,7 +48,7 @@
     <input class="border" type="password" id="group_password_again" name="group_password_again">
 </label> -->
 
-<input class="p-3 bg-green-300 cursor-pointer rounded-md" type="submit" value="Submit">
+<input class="p-2 bg-green-300 cursor-pointer rounded-md border-2 border-black hover:bg-green-500" type="submit" value="SUBMIT">
 
 </form>
 

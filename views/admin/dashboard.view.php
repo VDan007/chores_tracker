@@ -82,7 +82,7 @@
 </dialog>
    
 
-<div class="border-8 border-black rounded-md mt-4 max-h-[500px] overflow-y-scroll"> 
+<div class="border-8 border-black rounded-md mt-4 max-h-[500px] overflow-y-scroll mb-4"> 
 
     <h3 class="text-center my-5 text-3xl ">ALL CHORES</h3>
     
