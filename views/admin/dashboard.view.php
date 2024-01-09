@@ -9,22 +9,37 @@
         
  </div>
 
+<div class="flex gap-2 border-4 border-black rounded-md m-2 relative">
 
+        <h2 class="m-2 static top-0 left-0 text-2xl">Group members:</h2>
+        <div class=" overflow-hidden flex">
+            <div class="m-2 border-2 border-black p-2 flex flex-col ">
+                <h3 class=" text-2xl">Admins:</h3>
+                <?php foreach($model3 as $item) : ?>
+                    <div class="">
+                        <p class="text-xl"> <?= $item  ?> </p>
 
+                    </div>
+                <?php endforeach; ?>
+    
+            </div>
+            <div class="m-2 border-2 border-black p-2 flex flex-wrap">
+                <h3 class=" text-2xl">Members: </h3>
+                
+                    <?php foreach($model2 as $item) : ?>
+                        <div class="min-w-[120px] mx-2">
+                            <p class="text-xl"> <?= $item  ?> </p>
+    
+                        </div>
+                    <?php endforeach; ?>
 
-<div class="flex items-center gap-2 ">
-    <div class="border-2 border-green-300 w-[250px] p-2 rounded-md overflow-hidden">
-        <h2 class="mb-2">Group members:</h2>
-        <h3 class="mb-1">Admins:</h3>
-        <?php foreach($model3 as $item) : ?>
-            <p class="text-sm"> <?= $item  ?> </p>
-        <?php endforeach; ?>
-        <h3 class="mb-1">Members:</h3>
-        <?php foreach($model2 as $item) : ?>
-            <p class="text-sm"> <?= $item  ?> </p>
-        <?php endforeach; ?>
+                
+    
+            </div>
+            
+        </div>
     </div>
-    <div class="flex flex-col gap-4">
+    
            
     
            
