@@ -5,8 +5,8 @@ require('user.class.php');
 
 class MySqlDataProvider{
 
-    public function get_chores_by_admin($email){
-        return $this->query(sql:"SELECT * FROM chores WHERE creator = '$email' ",response_class:'Chores');
+    public function get_chores_by_admin($email,$email2){
+        return $this->query(sql:"SELECT * FROM chores WHERE creator = '$email' OR creator = '$email2' ",response_class:'Chores');
     }
 
     public function get_chores_of_user($email){

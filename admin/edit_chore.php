@@ -8,7 +8,7 @@ ensure_user_is_authenticated();
 if(is_get() && isset($_GET['id'])){
 
     $id = sanitize($_GET['id']);
-    $chores = Data::get_chores_by_admin($_SESSION['user_logged_in']->email);
+    $chores = Data::get_chores_by_admin($_SESSION['user_logged_in']->email,$_SESSION['other_admins_email']);
     
 
 }elseif(is_post()){

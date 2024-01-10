@@ -9,8 +9,8 @@ class Data{
         return self::$ds = $data_provider;
     }
 
-    static public function get_chores_by_admin($email){
-        return self::$ds->get_chores_by_admin($email);
+    static public function get_chores_by_admin($email,$email2){
+        return self::$ds->get_chores_by_admin($email,$email2);
     } 
 
     static public function get_chores_of_user($email){

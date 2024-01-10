@@ -10,6 +10,7 @@ $array_of_group_members = [];
 $array_of_group_admins = [];
 
 
+
 foreach(  (array) $admins_group[0]  as $key => $value){
     if($key != 'id' && $key != 'group_name' && $key != 'password' && $key !='admin_1' && $key != 'admin_2'){
         if(isset($value)){
@@ -32,10 +33,19 @@ $array = (array) $admins_group[0];
 $empty_place=  find_empty_space_for_new_member( array:$array,is_admin:isset($_POST['add_as_admin']));
 
 ///////is there place for admin ?///////////
+$empty_admin_place = empty_space_detector(array:$array_of_group_admins,to_find:'--');
+
 ///////is there place for member ?///////////
+$empty_member_place = empty_space_detector(array:$array_of_group_members,to_find:'--');
 
 
+$other_admin_email;
+ $step = array_filter($array_of_group_admins,fn($email) => $email !== $admin_user_email);
+ foreach($step as $item){
+    $other_admin_email = $item; 
+ }
 
+$_SESSION['other_admins_email'] = $other_admin_email;
 
 
 if(is_post()){
@@ -51,7 +61,7 @@ if(is_post()){
     
         if($name != null && $email != null && $password != null){
             try{
-                Data::create_user($name,$email,$password,isset($_POST['add_as_admin']) );
+                Data::create_user($name,$email,$password,isset($_POST['add_as_admin']) ? 1 : 0 );
                 Data::insert_member_into_group($admins_group_id,$email,$empty_place);
                 redirect('index.php');
     
@@ -93,4 +103,4 @@ if(is_post()){
 
 
 
-view('admin/dashboard',Data::get_chores_by_admin($admin_user_email), $array_of_group_members, $array_of_group_admins);
+view('admin/dashboard',Data::get_chores_by_admin($admin_user_email,$other_admin_email), $array_of_group_members, $array_of_group_admins,$empty_admin_place, $empty_member_place);

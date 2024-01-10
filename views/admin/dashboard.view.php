@@ -4,7 +4,7 @@
  <!-- BUTTONS DIV START   -->
     <div class="flex">
         <a class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group " href="create_chore.php">CREATE CHORE<span class="text-5xl">+</span>  </a>
-        <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group"  id="add_new_member_btn">ADD MEMBER <span class="text-5xl" >+</span></button>
+        <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-green-300 hover:bg-green-500 max-w-[220px] text-3xl rounded-md mb-2 group disabled:bg-gray-500" <?php if($model5 == false){echo 'disabled';} ?>  id="add_new_member_btn">ADD MEMBER <span class="text-5xl" >+</span></button>
         <button class="flex p-2 m-2 border-4 border-black items-center gap-4 bg-red-300 hover:bg-red-500 max-w-[220px] text-3xl rounded-md mb-2 group "  id="remove_member_btn">REMOVE MEMBER <span class="text-5xl" >-</span></button>
             
     </div>
@@ -59,7 +59,7 @@
         </label>
         <div class="flex justify-between items-center  min-w-[100%]">
             <label class="flex items-center" for="add_as_admin">ADMIN: 
-                <input class="ml-1 border-2 border-black rounded-sm appearance-none w-4 h-4 checked:bg-green-500 cursor-pointer bg-white"  type="checkbox" value="add_as_admin"  name="add_as_admin" id="add_as_admin">
+                <input class="ml-1 border-2 border-black rounded-sm appearance-none w-4 h-4 checked:bg-green-500 cursor-pointer bg-white disabled:bg-gray-500" <?php if($model4 == false){echo 'disabled';} ?>  type="checkbox" value="add_as_admin"  name="add_as_admin" id="add_as_admin">
             </label>
             <input id="add_new_member_btn_submit" class="p-2 ; bg-green-300 cursor-pointer border-2 border-black hover:bg-green-500 rounded-md" type="submit" value="ADD +">
         </div>
