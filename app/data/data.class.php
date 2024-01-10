@@ -50,14 +50,8 @@ class Data{
         }
     }
 
-    static public function insert_member_into_group($group_id,$is_admin,$user_email,$column){
-
-        if($is_admin){
-            return self::$ds->insert_admin_into_group($group_id,$user_email);
-        }else{
-            return self::$ds->insert_member_into_group($group_id,$user_email,$column);
-        }
-        
+    static public function insert_member_into_group($group_id,$user_email,$column){
+            return self::$ds->insert_member_into_group($group_id,$user_email,$column); 
     }
 
     static public function remove_user($email,$group_id,$column_to_delete){

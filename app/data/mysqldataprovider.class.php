@@ -120,13 +120,19 @@ class MySqlDataProvider{
 
 
     public function insert_member_into_group($group_id,$user_email,$column){
-        return $this->execute(
-            sql: "UPDATE groups SET $column = :email WHERE id = :id", 
-            sql_params:[
-                ':email' => $user_email,
-                ':id' => $group_id
-            ]     
-        );
+
+        
+            return $this->execute(
+                sql: "UPDATE groups SET $column = :email WHERE id = :id", 
+                sql_params:[
+                    ':email' => $user_email,
+                    ':id' => $group_id
+                ]     
+            );
+
+        
+
+
     }
 
     public function insert_admin_into_group($group_id,$user_email){

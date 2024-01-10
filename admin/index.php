@@ -29,7 +29,10 @@ foreach(  (array) $admins_group[0]  as $key => $value){
     }
 }
 $array = (array) $admins_group[0];
-$empty_place=  find_empty_space_for_new_member( $array);
+$empty_place=  find_empty_space_for_new_member( array:$array,is_admin:isset($_POST['add_as_admin']));
+
+///////is there place for admin ?///////////
+///////is there place for member ?///////////
 
 
 
@@ -48,8 +51,8 @@ if(is_post()){
     
         if($name != null && $email != null && $password != null){
             try{
-                Data::create_user($name,$email,$password,0);
-                Data::insert_member_into_group($admins_group_id,false,$email,$empty_place);
+                Data::create_user($name,$email,$password,isset($_POST['add_as_admin']) );
+                Data::insert_member_into_group($admins_group_id,$email,$empty_place);
                 redirect('index.php');
     
             }catch(Exception $e){

@@ -72,18 +72,33 @@ function quick_done($id,$status){
     Data::update_chore($id,$status);
 }
 
-function find_empty_space_for_new_member($array){
-    foreach($array as $key=>$value){
-        if($key != 'id' && 
-           $key != 'group_name' &&
-           $key != 'password' && 
-           $key != 'admin_1' && 
-           $key != 'admin_2' &&  
-           $value == null){
-            return $key;
-            break;
+function find_empty_space_for_new_member($array,$is_admin){
+
+    if($is_admin){
+        foreach($array as $key=>$value){
+            if(
+               ($key == 'admin_1' && $value == null ) ||
+               ($key == 'admin_2' &&  $value == null) ){
+                return $key;
+                break;
+            }
         }
+
+    }else{
+        foreach($array as $key=>$value){
+            if($key != 'id' && 
+               $key != 'group_name' &&
+               $key != 'password' && 
+               $key != 'admin_1' && 
+               $key != 'admin_2' &&  
+               $value == null){
+                return $key;
+                break;
+            }
+        }
+
     }
+
 }
 
 function filter_users_by_group($users_array,$group_class){
