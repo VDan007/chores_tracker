@@ -46,7 +46,7 @@ $other_admin_email;
  }
 
 $_SESSION['other_admins_email'] = $other_admin_email;
-
+/////////////////////// find other admins email ////////////////////////////
 
 if(is_post()){
 
@@ -94,7 +94,7 @@ if(is_post()){
                 redirect('index.php');
 
             }catch(Exception $e){
-                echo 'problem removing member';
+                echo 'You can not remove yourself silly. The ship needs a captain.';
             }
         }
     }
