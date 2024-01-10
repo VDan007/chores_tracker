@@ -76,4 +76,7 @@ class Data{
     static public function get_comment_by_id($comment_id){
         return self::$ds->get_comment_by_id($comment_id);
     }
+    static public function db_config(){
+        return self::$ds->db_config();
+    }
 }

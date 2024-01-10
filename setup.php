@@ -3,6 +3,20 @@
 require('app/app.php');
 
 
+if(is_post()){
+    if(isset($_POST['launch'])){
+        try{
+            Data::db_config();
+            $view_bag['db_setup_result'] = 'DB setup is a success! :)';
+
+        }catch(Exception $e){
+            return null;
+            $view_bag['db_setup_result']  = 'Error while setting up db :(';
+        }
+    }
+}
+
+
 //////////chores table
 
 // CREATE TABLE IF NOT EXISTS chores (

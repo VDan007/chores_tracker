@@ -938,6 +938,10 @@ video {
   min-height: 100vh;
 }
 
+.min-h-\[120px\] {
+  min-height: 120px;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -976,6 +980,14 @@ video {
 
 .min-w-\[80px\] {
   min-width: 80px;
+}
+
+.min-w-\[150px\] {
+  min-width: 150px;
+}
+
+.min-w-\[120px\] {
+  min-width: 120px;
 }
 
 .max-w-\[100\%\] {
@@ -2083,6 +2095,10 @@ video {
 
 .bg-cover {
   background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
 }
 
 .bg-fixed {
