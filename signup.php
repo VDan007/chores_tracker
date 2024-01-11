@@ -31,7 +31,7 @@ if(is_post()){
         echo '<script>setTimeout(function() { window.location.href = "login.php"; }, 3500);</script>';
 
     }catch(Exception $e){
-        echo $e;
+        echo 'Some proble registering user';
     }
 
 

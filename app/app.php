@@ -7,7 +7,7 @@ require('config.php');
 require('data/data.class.php');
 require('data/mysqldataprovider.class.php');
 require('data/group.class.php');
-require('data/Comment.class.php');
+require('data/comment.class.php');
 require('functions.php');
 
 

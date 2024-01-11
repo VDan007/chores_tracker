@@ -50,23 +50,37 @@ class MySqlDataProvider{
     }
 
     public function get_users(){
-        return $this->query(sql:'SELECT * FROM users',response_class:'User');
+        try{
+            return $this->query(sql:'SELECT * FROM users',response_class:'User');
+
+        }catch(Exception $e){
+            echo 'Some problem with db';
+        }
     }
 
     public function get_user_by_email($email){
-        return $this->query(sql: "SELECT * FROM users WHERE email = '$email' ",response_class:'User');
+        try{
+            return $this->query(sql: "SELECT * FROM users WHERE email = '$email' ",response_class:'User');
+
+        }catch(Exception $e){
+            echo 'warning problem getting user';
+        }
     }
 
     public function create_user($name,$email,$password,$is_admin){
-        return $this->execute(
-            sql:'INSERT INTO users (email,password,name,is_admin) VALUES(:email,:password,:name,:is_admin)',
-            sql_params:[
-                ':email' => $email,
-                ':password' => $password,
-                ':name' => $name,
-                ':is_admin' => $is_admin
-            ]
-        );
+        try{
+            return $this->execute(
+                sql:'INSERT INTO users (email,password,name,is_admin) VALUES(:email,:password,:name,:is_admin)',
+                sql_params:[
+                    ':email' => $email,
+                    ':password' => $password,
+                    ':name' => $name,
+                    ':is_admin' => $is_admin
+                ]
+            );
+        }catch(Exception $e){
+            return $e;
+        }
     }
 
     public function remove_user($email){
@@ -258,7 +272,7 @@ class MySqlDataProvider{
             due_date DATE NOT NULL,
             status VARCHAR(50) NOT NULL,
             description VARCHAR(200) NOT NULL,
-            comment TEXT);'
+            comments TEXT);'
             );
         $stmt->execute();
 
@@ -336,7 +350,7 @@ class MySqlDataProvider{
             return new PDO(CONFIG['db'],CONFIG['db_user'],CONFIG['db_password']);
             
         }catch(PDOException $e){
-            return null;
+            return $e;
         }
     }
 }
