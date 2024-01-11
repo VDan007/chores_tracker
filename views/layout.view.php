@@ -43,7 +43,10 @@
 
 
     <footer class="border-8 border-black rounded-md">
-        <nav>
+        <nav class="flex justify-between items-center">
+            <ul class=" p-4 justify-end text-3xl">
+                <li> <a class="hover:border-4 border-black rounded-md p-1"  href="setup.php">SETUP</a> </li>
+            </ul>
             <ul class="flex gap-4 p-4 justify-end text-3xl">
                 <li><a class="hover:border-4 border-black rounded-md p-1" href="h"> TERMS OF USE </a></li>
                 <li><a class="hover:border-4 border-black rounded-md p-1" href="h"> PRIVACY POLICY </a></li>
