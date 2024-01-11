@@ -18,7 +18,7 @@
 </div>
 
 <dialog id='explosion' class="border-4 border-black rounded-md ">
-    <img src="/school_project_chore_tracker/images/bomb.gif" class="min-w-[400px] min-h-[400px]" alt="">
+    <img src="/chores_tracker/images/bomb.gif" class="min-w-[400px] min-h-[400px]" alt="">
 </dialog>
 
             <?php 
@@ -28,7 +28,7 @@
 
 <style>
     .launch{
-        background-image: url('/school_project_chore_tracker/images/fire.jpeg');
+        background-image: url('/chores_tracker/images/fire.jpeg');
         
     }
     
